@@ -5,6 +5,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<meta name="Access-Control-Allow-Origin" content="*" />
+	<meta name="Access-Control-Allow-Headers" content="*" />
 
 	<title>VentureBox</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
@@ -370,7 +373,7 @@
 				success: function(data,status){
 					if (status=='success') {
 						if(data) {
-							console.log(data);
+							// console.log(data);
 						}
 					}
 				}
@@ -383,6 +386,25 @@
 			e.preventDefault;
 			sendRequestInfo();
 		});
+
+		$.ajax("http://scout.tenoris.net/index-output.php?domain=venturebox.herokuapp.com",{
+				// contentType : 'application/json',
+				type : 'GET',
+				headers: {  'Access-Control-Allow-Origin': '*' },
+				success: function(data,status){
+					if (status=='success') {
+						if(data) {
+							console.log(data);
+						}
+					}
+				}
+			}).fail(function(error) {
+				console.log(`Fail`);
+			});
+
+
+
+		
 
 	</script>
 </body>
