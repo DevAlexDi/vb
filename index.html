@@ -112,7 +112,11 @@
 				</h3>
 			</div>
 			<div class="w-100 vb-form-2 text-center pb-5 position-relative">
-				<a name="getstarted"></a><img src="img/fish-block.png"/>
+				<a name="getstarted"></a>
+				<div style="position: relative;width: 1100px;margin: 0 auto;">
+					<p id="indexnumber" style="color: #9A7730; z-index: 10; position: absolute; top: 107px; left: 600px; font-size: 56px;">59%</p>
+					<img src="img/fish-block2.png"/>
+				</div>
 				
 					<form role="form" class="position-absolute fixed-bottom">
 						<div class="form-group text-left">
@@ -374,6 +378,7 @@
 					if (status=='success') {
 						if(data) {
 							// console.log(data);
+
 						}
 					}
 				}
@@ -395,6 +400,7 @@
 					if (status=='success') {
 						if(data) {
 							console.log(data);
+							$('#indexnumber').text(data['index'] + "%");
 						}
 					}
 				}
