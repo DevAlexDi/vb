@@ -263,15 +263,15 @@
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-primary_market">Primary market</label>
 							<select class="input-groupe__input" id="input-primary_market">
-								<option>Slovenia</option>
-								<option>USA</option>
+								<!-- <option>Slovenia</option> -->
+								<!-- <option>USA</option> -->
 							</select>
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-target_market">Target market</label>
 							<select class="input-groupe__input" id="input-target_market">
-								<option>USA</option>
-								<option>Slovenia</option>
+								<!-- <option>USA</option> -->
+								<!-- <option>Slovenia</option> -->
 							</select>
 						</div>
 						
@@ -413,8 +413,16 @@
 	</script>
 	<script src="js/function.js"></script>
 	<script src="js/scripts.js"></script>
+	<script src="js/countries.js"></script>
 
 	<script>
+
+		for (var item of Countries) {
+			$("#input-primary_market").append(new Option(item.name, item.name));
+			$("#input-target_market").append(new Option(item.name, item.name));
+		}	
+		$("#input-primary_market").val("United States");
+		$("#input-target_market").val("United States");
 
 		function sendRequestUser() {
 
