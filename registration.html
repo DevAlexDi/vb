@@ -69,7 +69,7 @@
 		<div class="row app-content vb-main__content vb-main__content--grey">
 			<form class="registr-form">
 				<div class="registr-form__xs-padding">
-					<h1 class="registr-form__title">Let’s discuss your business needs and how we can help</h1>
+					<h1 class="registr-form__title">Apply to be the the first to get free access to the platform</h1>
 					<p class="registr-form__sub-title">We are you interested in</p>
 				</div>
 				<div class="registr-form__width ">
@@ -208,15 +208,21 @@
 						<p class="form-groupe__title">Optional company info</p>
 						<div class="input-groupe registr-form__input-groupe">
 							<p class="input-groupe__label">Investor deck</p>
+							<br>
+							<div class="input-groupe registr-form__input-groupe">
+								<label class="input-groupe__label" for="input-investor_deck_link">Add link</label>
+								<input class="input-groupe__input" type="text" id="input-investor_deck_link">
+							</div>
+
 							<div class="input-groupe__tabs">
-								<label class="input-groupe__tabs-label" for="input-investor_deck_link">Add link</label>
 								<label class="input-groupe__tabs-label input-groupe__tabs-label--white" for="input-investor_deck_file">Upload file</label>
 							</div>
+							<p id="filename"></p>
 							<div class="input-groupe__flex-file">
-								<input class="input-groupe__input input-groupe__input--none-radius-right" type="text" id="input-investor_deck_link">
-								<input class="input-groupe__input-file" type="file" id="input-investor_deck_file">
+								<input class="input-groupe__input-file" type="file" name="file-input" id="input-investor_deck_file">
 								<label class="input-groupe__button-label" for="input-investor_deck_file"></label>
 							</div>
+
 						</div>	
 						<div class="input-groupe registr-form__input-groupe">
 							<p class="input-groupe__label input-groupe__label--more-margin">Current revenue</p>
@@ -424,6 +430,11 @@
 		$("#input-primary_market").val("United States");
 		$("#input-target_market").val("United States");
 
+		$("input[name='file-input']").change(function() {
+				var fileName = $(this).val().split('/').pop().split('\\').pop();
+				$("#filename").text(fileName);
+		});
+
 		function sendRequestUser() {
 
 			var dataUser = {
@@ -456,9 +467,24 @@
 			});
 		}
 
-		function sendRequestCompany(user_id) {
+		function getBase64(file, next) {
+			var reader = new FileReader();
+			reader.readAsDataURL(file);
+			reader.onload = function () {
+				console.log(reader.result);
+				next(reader.result);
+			};
+			reader.onerror = function (error) {
+				console.log('Error: ', error);
+				next('');
+			};
+		}
 
-			var dataCompany = {
+		function sendRequestCompany(user_id) {
+			getBase64(
+				document.querySelector('#input-investor_deck_file').files[0],
+					function(file) {
+									var dataCompany = {
 				name: $("#input-name").val(),
 				website: $("#input-website").val(),
 				description: "",
@@ -474,7 +500,7 @@
 				is_revenue_wholesale: $("#checkbox-is_revenue_wholesale").is(":checked"),
 				is_revenue_other: $("#checkbox-is_revenue_other").is(":checked"),
 				investor_deck_link: $("#input-investor_deck_link").val(),
-				investor_deck_file: $("#input-investor_deck_file").val(),
+				investor_deck_file: file,
 				current_revenue: $('input[name=revenue]:checked').val(),
 				current_stage_description: $("#input-current_stage_description").val(),
 				primary_market: $("#input-primary_market").val(),
@@ -500,6 +526,10 @@
 			}).fail(function(error) {
 				console.log(`Fail`);
 			});
+					}
+			);
+
+
 		}
 
 		$('#registr-form__button').click(function (e) {
