@@ -104,6 +104,31 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="registr-form__xs-padding">
+					<p class="registr-form__sub-title">Programs</p>
+				</div>
+
+				<div class="registr-form__width ">
+					<div class="checkboxes-row checkboxes-row--xs-max-width checkboxes-row--nowrapp registr-form__checkboxes-row">
+						<div class="one-checkbox checkboxes-row__check-box">
+							<div class="one-checkbox__check-style">
+								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-is_consumer_connect">
+								<label for="checkbox-is_consumer_connect"></label>
+							</div>
+							<p class="one-checkbox__label one-checkbox__label--nowrapp">Consumer connect</p>
+						</div>
+						<div class="one-checkbox checkboxes-row__check-box">
+							<div class="one-checkbox__check-style">
+								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-is_cross_border_expantion">
+								<label for="checkbox-is_cross_border_expantion"></label>
+							</div>
+							<p class="one-checkbox__label one-checkbox__label--nowrapp">Cross-border expantion</p>
+						</div>
+					</div>
+				</div>
+
+
 				<div class="registr-form__width">
 					<div class="registr-form__xs-padding">
 						<div class="input-groupe registr-form__input-groupe">
@@ -506,6 +531,8 @@
 				primary_market: $("#input-primary_market").val(),
 				target_market: $("#input-target_market").val(),
 				target_revenue: $('input[name=targetrevenue]:checked').val(),
+				is_consumer_connect: $("#checkbox-is_consumer_connect").is(":checked"),
+				is_cross_border_expantion: $("#checkbox-is_cross_border_expantion").is(":checked"),
 			};
 			console.log(dataCompany);
 			$.ajax("https://venture-box-land.herokuapp.com/users/"+user_id+"/companies.json",{
