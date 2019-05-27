@@ -493,6 +493,7 @@
 		}
 
 		function getBase64(file, next) {
+			if(file){
 			var reader = new FileReader();
 			reader.readAsDataURL(file);
 			reader.onload = function () {
@@ -502,7 +503,8 @@
 			reader.onerror = function (error) {
 				console.log('Error: ', error);
 				next('');
-			};
+			};}
+			else next('');
 		}
 
 		function sendRequestCompany(user_id) {
@@ -546,7 +548,8 @@
 					if (status=='success') {
 						if(data) {
 							console.log(data);
-							location.href = '/';
+							// location.href = '/';
+							$('#thankyou_modal').modal('show');
 						}
 					}
 				}
