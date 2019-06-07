@@ -9,8 +9,13 @@ setUserOnHeader();
 function setUserOnHeader() {
     if (TOKEN) {
         $('#login-block').css({'display':'none'});
+        $('#getstarted-block').css({'display':'none'});
         $('#username-block').css({'display':'block'});
         var user = JSON.parse(localStorage.getItem('user'));
         $('#username-text').text(user.name + " " + user.surname);
+    }
+    else {
+        $('#getstarted-block').css({'display':'block'});
+        $('#username-block').css({'display':'none'});
     }
 }
