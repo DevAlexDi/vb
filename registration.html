@@ -11,6 +11,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="css/select2.min.css" rel="stylesheet">
 	<link href="css/style.min.css" rel="stylesheet">
 </head>
 
@@ -136,7 +137,7 @@
 						<p class="form-groupe__title">Personal data</p>
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-3">Your role</label>
-							<select class="input-groupe__input" id="input-3">
+							<select class="input-groupe__input select-init" id="input-3">
 								<option>CEO</option>
 							</select>
 						</div>
@@ -171,13 +172,13 @@
 						<p class="form-groupe__title">Company info</p>
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" ></label>
-							<select class="input-groupe__input" id="input-markets">
+							<select class="input-groupe__input select-init" id="input-markets">
 								<option value="financial_markets">Financial Markets</option>
 							</select>
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-founded_in">Founded in</label>
-							<select class="input-groupe__input" type="text" id="input-founded_in">
+							<select class="input-groupe__input select-init" type="text" id="input-founded_in">
 								<option>2016</option>
 								<option>2017</option>
 								<option>2018</option>
@@ -186,7 +187,7 @@
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-current_stage">Current stage</label>
-							<select class="input-groupe__input" type="text" id="input-current_stage">
+							<select class="input-groupe__input select-init" type="text" id="input-current_stage">
 								<option value="round_a">Round A</option>
 								<option value="round_b">Round B</option>
 							</select>
@@ -285,14 +286,14 @@
 						<p class="form-groupe__title">Markets</p>
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-primary_market">Primary market</label>
-							<select class="input-groupe__input" id="input-primary_market">
+							<select class="input-groupe__input select-init" id="input-primary_market">
 								<!-- <option>Slovenia</option> -->
 								<!-- <option>USA</option> -->
 							</select>
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-target_market">Target market</label>
-							<select class="input-groupe__input" id="input-target_market">
+							<select class="input-groupe__input select-init" id="input-target_market">
 								<!-- <option>USA</option> -->
 								<!-- <option>Slovenia</option> -->
 							</select>
@@ -356,10 +357,10 @@
 		<div class="row vb-footer-wrap vb-main__footer">
 			<div class="vb-footer w-100">
 				<div class="col-12 row">
-						<a class="navbar-brand logo mr-5" href="#"><img src="img/v-box-logo.png" /></a>				
+						<a class="navbar-brand logo mr-5" href="index.html"><img src="img/v-box-logo.png" /></a>				
 				</div>
 				<div class="row vb-footer-navs mt-3">
-					<div class="col-lg-3 col-5">
+					<!-- <div class="col-lg-3 col-5">
 						<h5><a href="#">About</a></h5>
 						<div class="row">
 							<div class="col-6">
@@ -371,39 +372,39 @@
 								<h6><a href="#">Blog</a></h6>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="col-lg-3 col-7">
-						<h5><a href="#">Our product</a></h5>
+						<!-- <h5><a href="#">Our product</a></h5> -->
 						<div class="row">
 							<div class="col-6">
-								<h6><a href="#">Features</a></h6>
+								<!-- <h6><a href="#">Features</a></h6> -->
 								<h6><a href="capitalcredit.html">Capital</a></h6>						
 							</div>
 							<div class="col-6">
 								<h6><a href="partners.html">Partners</a></h6>
-								<!-- <h6><a href="marketplace.html">Marketplace</a></!--> -->
+								<!-- <h6><a href="marketplace.html">Marketplace</a></!--> 
 							</div>
 						</div>
 
 					</div>
-					<div class="col-3 d-none d-md-block">
+					<!-- <div class="col-3 d-none d-md-block">
 						<h5><a href="#">Contact us<span class="pl-3"><img class="ft-icon" src="img/ico-mail.png"/></span></a></h5>
 
-					</div>
-					<div class="col-lg-3 col-12 text-left text-md-right pr-0">
+					</div> -->
+					<!-- <div class="col-lg-3 col-12 text-left text-md-right pr-0">
 						<ul class="social-icons">
 							<li><a href="#"><img class="ft-icon" src="img/ico-angellist.png"/></a></li>
 							<li><a href="#"><img class="ft-icon" src="img/ico-crunchbase.png"/></a></li>
 							<li><a href="#"><img class="ft-icon" src="img/ico-linkedin.png"/></a></li>
 							<li><a href="#"><img class="ft-icon d-inline-block d-md-none" src="img/ico-mail.png"/></a></li>
 						</ul>
-					</div>
+					</div> -->
 				</div>	
 				<div class="row d-block text-left text-md-right">
 					<ul class="vb-footer-bottom">
 						<li>© 2019 Venture Box. All right reserved.</li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Terms of Service</a></li>
+						<!-- <li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Terms of Service</a></li> -->
 					</ul>
 				</div>			
 			</div>
@@ -449,11 +450,16 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
+	<script src="js/select2.min.js"></script>
 	<script src="js/function.js"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/countries.js"></script>
 
 	<script>
+		$('.select-init').select2({
+			width: 'resolve'
+		});
+
 
 		for (var item of Countries) {
 			$("#input-primary_market").append(new Option(item.name, item.name));
