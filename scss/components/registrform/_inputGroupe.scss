@@ -46,6 +46,10 @@
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
         }
+
+        &--error {
+            border-color: #dc143c;
+        }
    }
 
    &__line {

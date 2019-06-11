@@ -60,7 +60,7 @@
 		
 		<!--here-->
 		<div class="row app-content vb-main__content vb-main__content--grey">
-			<form class="registr-form">
+			<form class="registr-form" id="registr-form">
 				<div class="registr-form__xs-padding">
 					<h1 class="registr-form__title">Apply to be the the first to get free access to the platform</h1>
 					<p class="registr-form__sub-title">What are you interested in</p>
@@ -126,7 +126,7 @@
 					<div class="registr-form__xs-padding">
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-website">Website</label>
-							<input class="input-groupe__input" type="text" id="input-website" placeholder="http://">
+							<input class="input-groupe__input" type="text" id="input-website" placeholder="http://" required>
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-name">Company name</label>
@@ -593,6 +593,16 @@
 
 		$('#registr-form__button').click(function (e) {
 			e.preventDefault;
+			console.log($('#registr-form'))
+			
+			$('.input-groupe__input').removeClass('input-groupe__input--error');
+			$('.input-groupe__input').each(function(){
+				if($(this).val() == ''){
+					$(this).addClass('input-groupe__input--error');
+				}
+				
+			});
+
 			sendRequestUser();
 		});
 	</script>
