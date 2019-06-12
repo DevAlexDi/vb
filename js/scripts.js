@@ -19,3 +19,13 @@ function setUserOnHeader() {
         $('#username-block').css({'display':'none'});
     }
 }
+
+$('.download_1').click(function(e) {
+        e.preventDefault(); 
+        window.location.href = './files/Privacy_Policy_13V.docx';
+});
+
+$('.download_2').click(function(e) {
+        e.preventDefault(); 
+        window.location.href = './files/Terms_of_Service_13V.docx';
+});
