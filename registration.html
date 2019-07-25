@@ -172,9 +172,18 @@
 							<label class="input-groupe__label" for="input-phone">Phone number</label>
 							<input class="input-groupe__input" type="text" id="input-phone">
 						</div>
+					
+						<div class="input-groupe registr-form__input-groupe">
+							<label class="input-groupe__label" for="input-goals">Describe your goals</label>
+							<textarea class="input-groupe__input input-groupe__input--textarea" id="input-goals"></textarea>
+						</div>
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-password">Password</label>
 							<input class="input-groupe__input" type="password" id="input-password">
+						</div>
+						<div class="input-groupe registr-form__input-groupe">
+							<label class="input-groupe__label" for="input-password">Password confirmation</label>
+							<input class="input-groupe__input" type="password" id="input-password-conf">
 						</div>
 					</div>
 					<div class="form-groupe form-groupe--margin-top registr-form__form-groupe">
@@ -210,6 +219,43 @@
 							<label class="input-groupe__label" for="input-evaluation">Evaluation</label>
 							<input class="input-groupe__input" type="text" id="input-evaluation">
 						</div>
+
+						<div class="input-groupe registr-form__input-groupe">
+							<label class="input-groupe__label" for="input-investment">Already invested</label>
+							<input class="input-groupe__input" type="text" id="input-investment">
+						</div>
+
+						<div class="input-groupe registr-form__input-groupe">
+							<label class="input-groupe__label" for="input-company_email">Company email</label>
+							<input class="input-groupe__input" type="text" id="input-company_email">
+						</div>
+
+						<div class="input-groupe registr-form__input-groupe">
+							<label class="input-groupe__label" for="input-description">Company description</label>
+							<input class="input-groupe__input" type="text" id="input-description">
+						</div>
+
+						<div class="input-groupe registr-form__input-groupe">
+							
+							<div class="input-groupe__tabs">
+								<label class="input-groupe__tabs-label input-groupe__tabs-label--white" for="input-company_logo">Company logo</label>
+							</div>
+							<p id="filename1"></p>
+							<div class="input-groupe__flex-file">
+								<input class="input-groupe__input-file" type="file" name="file-input" data-target="filename1" id="input-company_logo">
+								<label class="input-groupe__button-label" for="input-company_logo"></label>
+							</div>
+
+						</div>	
+
+
+
+
+
+
+ 
+
+
 						<div class="input-groupe registr-form__input-groupe">
 							<p class="input-groupe__label input-groupe__label--more-margin">Source of revenue</p>
 							<div class="checkboxes-row checkboxes-row--nowrapp registr-form__checkboxes-row">
@@ -249,9 +295,9 @@
 							<div class="input-groupe__tabs">
 								<label class="input-groupe__tabs-label input-groupe__tabs-label--white" for="input-investor_deck_file">Upload file</label>
 							</div>
-							<p id="filename"></p>
+							<p id="filename2"></p>
 							<div class="input-groupe__flex-file">
-								<input class="input-groupe__input-file" type="file" name="file-input" id="input-investor_deck_file">
+								<input class="input-groupe__input-file" type="file" name="file-input" data-target="filename2" id="input-investor_deck_file">
 								<label class="input-groupe__button-label" for="input-investor_deck_file"></label>
 							</div>
 
@@ -455,6 +501,21 @@
 		  </div>
 		</div>
 	  </div>
+	  <div class="modal" tabindex="-1" role="dialog" id="error_pass_modal">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title">Error!</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+			  <p>Please, check your password and password confirmation!</p>
+			</div>
+		  </div>
+		</div>
+	  </div>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 		crossorigin="anonymous">
 	</script>
@@ -484,10 +545,19 @@
 
 		$("input[name='file-input']").change(function() {
 				var fileName = $(this).val().split('/').pop().split('\\').pop();
-				$("#filename").text(fileName);
+				var name = '#' + $(this).attr('data-target');
+				console.log(`name = `, name);
+				$(name).text(fileName);
 		});
 
 		function sendRequestUser() {
+
+			getBase64(
+				document.querySelector('#input-investor_deck_file').files[0],
+				function(file1) {
+							getBase64(
+								document.querySelector('#input-company_logo').files[0],
+								function(file2) {
 
 			var dataUser = {
 				name: $("#input-firstname").val(),
@@ -495,22 +565,62 @@
 				email: $("#input-email").val(),
 				phone: $("#input-phone").val(),
 				password: $("#input-password").val(),
-				password_confirmation: $("#input-password").val(),
-				role: "ceo"
-			};
+				password_confirmation: $("#input-password-conf").val(),
+				role: "investor",
+				goals: $("#input-goals").val(),
+										company_name: $("#input-name").val(),
+										website: $("#input-website").val(),
+										description: "",
+										is_interested_in_access: $("#checkbox-is_interested_in_access").is(":checked"),
+										is_interested_in_insights: $("#checkbox-is_interested_in_insights").is(":checked"),
+										is_interested_in_capital: $("#checkbox-is_interested_in_capital").is(":checked"),
+										is_interested_in_marketplace: $("#checkbox-is_interested_in_marketplace").is(":checked"),
+										markets: $("#input-markets").val(),
+										founded_in: $("#input-founded_in").val(),
+										current_stage: $("#input-current_stage").val(),
+										evaluation: $("#input-evaluation").val(),
+										is_revenue_consumer: $("#checkbox-is_revenue_consumer").is(":checked"),
+										is_revenue_wholesale: $("#checkbox-is_revenue_wholesale").is(":checked"),
+										is_revenue_other: $("#checkbox-is_revenue_other").is(":checked"),
+										investor_deck_link: $("#input-investor_deck_link").val(),
+										investor_deck_file: file1,
+										current_revenue: $('input[name=revenue]:checked').val(),
+										current_stage_description: $("#input-current_stage_description").val(),
+										primary_market: $("#input-primary_market").val(),
+										target_market: $("#input-target_market").val(),
+										target_revenue: $('input[name=targetrevenue]:checked').val(),
+										is_consumer_connect: $("#checkbox-is_consumer_connect").is(":checked"),
+										is_cross_border_expantion: $("#checkbox-is_cross_border_expantion").is(":checked"),
 
-			$.ajax("https://venture-box-land.herokuapp.com/users.json",{
+										investment: $("#input-investmentt").val(),
+										company_email: $("#input-company_email").val(),
+										company_logo: file2 ,
+										description: $("#input-description").val(),
+										team_members: [{
+											team_member_name: $("#input-firstname").val(),
+											c_level: $("#input-3").val()
+										}]
+			};
+			console.log(`user = `,dataUser);
+
+			if(!$("#input-password").val() || $("#input-password").val() != $("#input-password-conf").val() )
+			{
+				$('#error_pass_modal').modal('show');
+			}
+			else 
+			$.ajax("https://venture-box-back-test.herokuapp.com/users.json",{
 				data : JSON.stringify(dataUser),
 				contentType : 'application/json',
 				type : 'POST',
 				success: function(data,status){
 					if (status=='success') {
 						if(data) {
-							localStorage.setItem('token', data['token']);
-							localStorage.setItem('user', JSON.stringify(data));
-							TOKEN = data['token'];
-							sendRequestCompany(data['id']);
-							setUserOnHeader();
+							// localStorage.setItem('token', data['token']);
+							// localStorage.setItem('user', JSON.stringify(data));
+							// TOKEN = data['token'];
+							// sendRequestCompany(data['id']);
+							// setUserOnHeader();
+							$('#thankyou_modal').modal('show');
 						}
 					}
 				}
@@ -518,6 +628,8 @@
 				console.log(`Fail`);
 				$('#error_modal').modal('show');
 			});
+			});
+		});
 		}
 
 		function getBase64(file, next) {
@@ -538,54 +650,37 @@
 		function sendRequestCompany(user_id) {
 			getBase64(
 				document.querySelector('#input-investor_deck_file').files[0],
-					function(file) {
+				function(file1) {
+							getBase64(
+								document.querySelector('#input-company_logo').files[0],
+								function(file2) {
 									var dataCompany = {
-				name: $("#input-name").val(),
-				website: $("#input-website").val(),
-				description: "",
-				is_interested_in_access: $("#checkbox-is_interested_in_access").is(":checked"),
-				is_interested_in_insights: $("#checkbox-is_interested_in_insights").is(":checked"),
-				is_interested_in_capital: $("#checkbox-is_interested_in_capital").is(":checked"),
-				is_interested_in_marketplace: $("#checkbox-is_interested_in_marketplace").is(":checked"),
-				markets: $("#input-markets").val(),
-				founded_in: $("#input-founded_in").val(),
-				current_stage: $("#input-current_stage").val(),
-				evaluation: $("#input-evaluation").val(),
-				is_revenue_consumer: $("#checkbox-is_revenue_consumer").is(":checked"),
-				is_revenue_wholesale: $("#checkbox-is_revenue_wholesale").is(":checked"),
-				is_revenue_other: $("#checkbox-is_revenue_other").is(":checked"),
-				investor_deck_link: $("#input-investor_deck_link").val(),
-				investor_deck_file: file,
-				current_revenue: $('input[name=revenue]:checked').val(),
-				current_stage_description: $("#input-current_stage_description").val(),
-				primary_market: $("#input-primary_market").val(),
-				target_market: $("#input-target_market").val(),
-				target_revenue: $('input[name=targetrevenue]:checked').val(),
-				is_consumer_connect: $("#checkbox-is_consumer_connect").is(":checked"),
-				is_cross_border_expantion: $("#checkbox-is_cross_border_expantion").is(":checked"),
-			};
-			console.log(dataCompany);
-			$.ajax("https://venture-box-land.herokuapp.com/users/"+user_id+"/companies.json",{
-				data : JSON.stringify(dataCompany),
-				contentType : 'application/json',
-				type : 'POST',
-				headers:{
-                    "Authorization": TOKEN
-                },
-				success: function(data,status){
-					if (status=='success') {
-						if(data) {
-							console.log(data);
-							// location.href = '/';
-							$('#thankyou_modal').modal('show');
-						}
-					}
+
+									};
+									console.log(`company = `,dataCompany);
+									$.ajax("https://venture-box-back-test.herokuapp.com/users/"+user_id+"/companies.json",{
+										data : JSON.stringify(dataCompany),
+										contentType : 'application/json',
+										type : 'POST',
+										headers:{
+											"Authorization": TOKEN
+										},
+										success: function(data,status){
+											if (status=='success') {
+												if(data) {
+													console.log(data);
+													// location.href = '/';
+													$('#thankyou_modal').modal('show');
+												}
+											}
+										}
+									}).fail(function(error) {
+										console.log(`Fail`);
+										$('#error_modal').modal('show');
+									});
+								}
+							);
 				}
-			}).fail(function(error) {
-				console.log(`Fail`);
-				$('#error_modal').modal('show');
-			});
-					}
 			);
 
 
