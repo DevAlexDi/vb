@@ -138,16 +138,16 @@
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-3">Your role</label>
 							<select class="input-groupe__input select-init" id="input-3">
-								<option>CEO</option>
-								<option>CTO</option>
-								<option>CFO</option>
-								<option>CIO</option>
-								<option>COO</option>
-								<option>CCO</option>
-								<option>CKO</option>
-								<option>CSO</option>
-								<option>CDO</option>
-								<option>CMO</option>
+								<option value="ceo">CEO</option>
+								<option value="cto">CTO</option>
+								<option value="cfo">CFO</option>
+								<option value="cio">CIO</option>
+								<option value="coo">COO</option>
+								<option value="cco">CCO</option>
+								<option value="cko">CKO</option>
+								<option value="cso">CSO</option>
+								<option value="cdo">CDO</option>
+								<option value="cmo">CMO</option>
 							</select>
 						</div>
 						<div class="form-row-inp">
@@ -552,7 +552,7 @@
 		});
 
 		function sendRequestUser() {
-				$('#additionError').val('');
+				$('#additionError').text('');
 			getBase64(
 				document.querySelector('#input-investor_deck_file').files[0],
 				function(file1) {
@@ -602,7 +602,8 @@
 										team_members: [{
 											team_member_name: $("#input-firstname").val(),
 											c_level: $("#input-3").val()
-										}]
+										}],
+										c_level: $("#input-3").val()
 			};
 			console.log(`user = `,dataUser);
 
@@ -629,7 +630,19 @@
 				}
 			}).fail(function(error) {
 				console.log(`Fail`);
-				$('#additionError').val(error);
+
+				var errors = error.responseJSON;
+				
+				var Errors = '';
+
+				for (var key in errors) {
+					var value = errors[key];
+					for (var item of value) {
+						Errors += key.slice(0, 1).toUpperCase() + key.slice(1).replace('_', ' ').toLowerCase();
+						Errors += ' ' + item.replace('_', ' ').toLowerCase() + '. ';
+					}
+				}
+				$('#additionError').text(Errors);
 				$('#error_modal').modal('show');
 			});
 			});
