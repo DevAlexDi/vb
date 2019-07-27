@@ -217,7 +217,7 @@
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-equality_amount">Evaluation (%)</label>
-							<input class="input-groupe__input" type="number" max="99" id="input-equality_amount">
+							<input class="input-groupe__input" type="number" max="99" oninput="maxLengthCheck(this)" maxlength = "2" min = "0" max = "99" id="input-equality_amount">
 						</div>
 
 						<div class="input-groupe registr-form__input-groupe">
@@ -532,6 +532,13 @@
 	<script src="js/countries.js"></script>
 
 	<script>
+
+		function maxLengthCheck(object)
+		{
+			if (object.value.length > object.maxLength)
+			object.value = object.value.slice(0, object.maxLength)
+		}
+
 		$('.select-init').select2({
 			width: 'resolve'
 		});
