@@ -497,6 +497,7 @@
 			</div>
 			<div class="modal-body">
 			  <p>Please, fill in all required fields</p>
+			  <p id="additionError"></p>
 			</div>
 		  </div>
 		</div>
@@ -551,7 +552,7 @@
 		});
 
 		function sendRequestUser() {
-
+				$('#additionError').val('');
 			getBase64(
 				document.querySelector('#input-investor_deck_file').files[0],
 				function(file1) {
@@ -595,6 +596,7 @@
 										investment: $("#input-investmentt").val(),
 										company_email: $("#input-company_email").val(),
 										company_logo: file2 ,
+										image: file2 ,
 										description: $("#input-description").val(),
 										team_members: [{
 											team_member_name: $("#input-firstname").val(),
@@ -626,6 +628,7 @@
 				}
 			}).fail(function(error) {
 				console.log(`Fail`);
+				$('#additionError').val(error);
 				$('#error_modal').modal('show');
 			});
 			});
