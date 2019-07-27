@@ -619,7 +619,7 @@
 				$('#error_pass_modal').modal('show');
 			}
 			else 
-			$.ajax("https://venture-box-back-test.herokuapp.com/users.json",{
+			$.ajax("https://venture-box-back.herokuapp.com/users.json",{
 				data : JSON.stringify(dataUser),
 				contentType : 'application/json',
 				type : 'POST',
@@ -682,7 +682,7 @@
 
 									};
 									console.log(`company = `,dataCompany);
-									$.ajax("https://venture-box-back-test.herokuapp.com/users/"+user_id+"/companies.json",{
+									$.ajax("https://venture-box-back.herokuapp.com/users/"+user_id+"/companies.json",{
 										data : JSON.stringify(dataCompany),
 										contentType : 'application/json',
 										type : 'POST',
