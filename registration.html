@@ -406,6 +406,18 @@
 							<p class="one-checkbox__label">By checking this box, I agree and consent to transact business with Venture Box electronically, including signing and receiving documents, disclosures and other records electronically and as set forth in the Electronic Business Consent in our Terms of Use. </p>
 						</div>
 						<p class="registr-form__submit" id="registr-form__button" >Send</p>
+						<div style="display: none;" id="preloader">
+							  <div id="cube-loader">
+								<div class="caption">
+								<div class="cube-loader">
+									<div class="cube loader-1"></div>
+									<div class="cube loader-2"></div>
+									<div class="cube loader-4"></div>
+									<div class="cube loader-3"></div>
+								</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</form>
@@ -560,6 +572,8 @@
 
 		function sendRequestUser() {
 				$('#additionError').text('');
+				$('#preloader').css({'display' : 'block'});
+				$('#registr-form__button').css({'display' : 'none'});
 			getBase64(
 				document.querySelector('#input-investor_deck_file').files[0],
 				function(file1) {
@@ -617,6 +631,8 @@
 			if(!$("#input-password").val() || $("#input-password").val() != $("#input-password-conf").val() )
 			{
 				$('#error_pass_modal').modal('show');
+				$('#preloader').css({'display' : 'none'});
+				$('#registr-form__button').css({'display' : 'block'});
 			}
 			else 
 			$.ajax("https://venture-box-back.herokuapp.com/users.json",{
@@ -634,6 +650,8 @@
 							$('#thankyou_modal').modal('show');
 						}
 					}
+					$('#preloader').css({'display' : 'none'});
+					$('#registr-form__button').css({'display' : 'block'});
 				}
 			}).fail(function(error) {
 				console.log(`Fail`);
@@ -651,6 +669,8 @@
 				}
 				$('#additionError').text(Errors);
 				$('#error_modal').modal('show');
+				$('#preloader').css({'display' : 'none'});
+				$('#registr-form__button').css({'display' : 'block'});
 			});
 			});
 		});
