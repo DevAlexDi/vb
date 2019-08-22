@@ -5,6 +5,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<meta name="Access-Control-Allow-Origin" content="*" />
+	<meta name="Access-Control-Allow-Headers" content="*" />
 
 	<title>VentureBox</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
@@ -45,17 +48,21 @@
 								<a class="nav-link" href="partners.html">Partners</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="marketplace.html">Marketplace</a>
+								<a class="nav-link" href="https://venturebox.myshopify.com">Marketplace</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-md-auto hidden-on-sm">
-							<li class="nav-item">
-								<a role="button" href="#getstarted" class="btn btn-primary-1 btn-md">
+							<li id="getstarted-block" class="nav-item" style="display: block;">
+							123
+								<a role="button" href="registration.html" class="btn btn-primary-1 btn-md">
 										Get Started
 								</a>
 							</li>
-							<li class="nav-item active">
+							<!-- <li class="nav-item active" id="login-block">
 								<a class="nav-link ml-4" href="registration.html">Log in <span class="sr-only">(current)</span></a>
+							</li> -->
+							<li class="nav-item" id="username-block" style="display: none;">
+								<p class="nav-link ml-4" id="username-text">Username</p>
 							</li>
 
 						</ul>
@@ -72,7 +79,7 @@
 						for your company growth and capital sourcing
 				</p>
 				<div class="row text-center">
-					<a role="button" href="#getstarted" class="btn btn-primary-1 btn-md d-block m-auto">
+					<a role="button" href="registration.html" class="btn btn-primary-1 btn-md d-block m-auto">
 							Get Started
 					</a>
 				</div>
@@ -102,16 +109,21 @@
 		<div class="row justify-content-center">
 			<div class="w-100 vb-form text-center pt-5">
 				<h3 class="text-center max740">
-						Our Platform generates data-driven insights to assess the potential of your market and product
+						Our Platform generates data-driven insights to assess the potential of your market and product <br><br>
 				</h3>
+				<h3>You can test it now</h3>
 			</div>
 			<div class="w-100 vb-form-2 text-center pb-5 position-relative">
-				<a name="getstarted"></a><img src="img/fish-block.png"/>
+				<a name="getstarted"></a>
+				<div style="position: relative;width: 1100px;margin: 0 auto;">
+					<p id="indexnumber" style="color: #9A7730; z-index: 10; position: absolute; top: 107px; left: 600px; font-size: 56px;">59%</p>
+					<img src="img/fish-block2.png"/>
+				</div>
 				
 					<form role="form" class="position-absolute fixed-bottom">
-						<div class="form-group text-left">
+						<!-- <div class="form-group text-left">
 							<label for="exampleInputEmail1">
-								Comapny name
+								Company name
 							</label>
 							<input type="text" class="form-control" placeholder="Company domain name or market name" id="exampleInputCompany" required>
 						</div>
@@ -121,9 +133,12 @@
 								Email
 							</label>
 							<input type="email" class="form-control" id="exampleInputEmail1" required>
-						</div>
-						<button type="submit" id="btn_request" class="btn btn-primary-inv w-100">
+						</div> -->
+						<!-- <button type="button" id="btn_request" class="btn btn-primary-inv w-100">
 							Request info
+						</button> -->
+						<button type="button" id="btn_request" class="btn btn-primary-inv w-100">
+							Get started
 						</button>
 					</form>
 				</div>
@@ -264,67 +279,67 @@
 			</div>
 
 			<div class="w-100 text-center pt-5">
-				<a role="button" href="#getstarted" class="btn btn-primary-inv btn-md btn-48 btn-200">
+				<a role="button" href="registration.html" class="btn btn-primary-inv btn-md btn-48 btn-200">
 						Get Started
 				</a>	
 			</div>	
 		</div>
 		<div class="row vb-footer-wrap vb-main__footer">
-			<div class="vb-footer w-100">
-				<div class="col-12 row">
-						<a class="navbar-brand logo mr-5" href="#"><img src="img/v-box-logo.png" /></a>				
-				</div>
-				<div class="row vb-footer-navs mt-3">
-					<div class="col-lg-3 col-5">
-						<h5><a href="about.html">About</a></h5>
-						<div class="row">
-							<div class="col-6">
-								<h6><a href="#">Press</a></h6>
-								<h6><a href="#">Career</a></h6>						
+				<div class="vb-footer w-100">
+					<div class="col-12 row">
+							<a class="navbar-brand logo mr-5" href="index.html"><img src="img/v-box-logo.png" /></a>				
+					</div>
+					<div class="row vb-footer-navs mt-3">
+						<!-- <div class="col-lg-3 col-5">
+							<h5><a href="#">About</a></h5>
+							<div class="row">
+								<div class="col-6">
+									<h6><a href="#">Press</a></h6>
+									<h6><a href="#">Career</a></h6>						
+								</div>
+								<div class="col-6">
+									<h6><a href="#">FAQs</a></h6>
+									<h6><a href="#">Blog</a></h6>
+								</div>
 							</div>
-							<div class="col-6">
-								<h6><a href="#">FAQs</a></h6>
-								<h6><a href="#">Blog</a></h6>
+						</div> -->
+						<div class="col-lg-3 col-7">
+							<!-- <h5><a href="#">Our product</a></h5> -->
+							<div class="row">
+								<div class="col-6">
+									<!-- <h6><a href="#">Features</a></h6> -->
+									<h6><a href="capitalcredit.html">Capital</a></h6>						
+								</div>
+								<div class="col-6">
+									<h6><a href="partners.html">Partners</a></h6>
+									<!-- <h6><a href="marketplace.html">Marketplace</a></!--> 
+								</div>
 							</div>
+	
 						</div>
-					</div>
-					<div class="col-lg-3 col-7">
-						<h5><a href="#">Our product</a></h5>
-						<div class="row">
-							<div class="col-6">
-								<h6><a href="#">Features</a></h6>
-								<h6><a href="#">Capital</a></h6>						
-							</div>
-							<div class="col-6">
-								<h6><a href="#">Partners</a></h6>
-								<h6><a href="#">Marketplace</a></h6>
-							</div>
-						</div>
-
-					</div>
-					<div class="col-3 d-none d-md-block">
-						<h5><a href="#">Contact us<span class="pl-3"><img class="ft-icon" src="img/ico-mail.png"/></span></a></h5>
-
-					</div>
-					<div class="col-lg-3 col-12 text-left text-md-right pr-0">
-						<ul class="social-icons">
-							<li><a href="#"><img class="ft-icon" src="img/ico-angellist.png"/></a></li>
-							<li><a href="#"><img class="ft-icon" src="img/ico-crunchbase.png"/></a></li>
-							<li><a href="#"><img class="ft-icon" src="img/ico-linkedin.png"/></a></li>
-							<li><a href="#"><img class="ft-icon d-inline-block d-md-none" src="img/ico-mail.png"/></a></li>
+						<!-- <div class="col-3 d-none d-md-block">
+							<h5><a href="#">Contact us<span class="pl-3"><img class="ft-icon" src="img/ico-mail.png"/></span></a></h5>
+	
+						</div> -->
+						<!-- <div class="col-lg-3 col-12 text-left text-md-right pr-0">
+							<ul class="social-icons">
+								<li><a href="#"><img class="ft-icon" src="img/ico-angellist.png"/></a></li>
+								<li><a href="#"><img class="ft-icon" src="img/ico-crunchbase.png"/></a></li>
+								<li><a href="#"><img class="ft-icon" src="img/ico-linkedin.png"/></a></li>
+								<li><a href="#"><img class="ft-icon d-inline-block d-md-none" src="img/ico-mail.png"/></a></li>
+							</ul>
+						</div> -->
+					</div>	
+					<div class="row d-block text-left text-md-right">
+						<ul class="vb-footer-bottom">
+							<li>© 2019 Venture Box. All right reserved.</li>
+							<li><a class="download_1" href="#">Privacy Policy</a></li>
+							<li><a class="download_2" href="#">Terms of Service</a></li>
 						</ul>
-					</div>
-				</div>	
-				<div class="row d-block text-left text-md-right">
-					<ul class="vb-footer-bottom">
-						<li>© 2019 Venture Box. All right reserved.</li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Terms of Service</a></li>
-					</ul>
-				</div>			
+					</div>			
+				</div>
+	
 			</div>
-
-		</div>
 	</div>
 	<div class="modal" tabindex="-1" role="dialog" id="thankyou_modal">
 		<div class="modal-dialog" role="document">
@@ -352,6 +367,59 @@
 	</script>
 	<script src="js/function.js"></script>
 	<script src="js/scripts.js"></script>
+
+	<script>
+		function sendRequestInfo() {
+
+			var data = {
+				name: $("#exampleInputCompany").val(),
+				email: $("#exampleInputEmail1").val()
+			};
+			$.ajax("https://venture-box-land.herokuapp.com/requests.json",{
+				data : JSON.stringify(data),
+				contentType : 'application/json',
+				type : 'POST',
+				success: function(data,status){
+					if (status=='success') {
+						if(data) {
+							// console.log(data);
+
+						}
+					}
+				}
+			}).fail(function(error) {
+				console.log(`Fail`);
+			});
+		}
+
+		$('#btn_request').click(function (e) {
+			e.preventDefault;
+			// sendRequestInfo();
+			location.href = '/registration.html';
+
+		});
+
+		$.ajax("https://scout.tenoris.net/index-output.php?domain=venturebox.herokuapp.com",{
+				// contentType : 'application/json',
+				type : 'GET',
+				headers: {  'Access-Control-Allow-Origin': '*' },
+				success: function(data,status){
+					if (status=='success') {
+						if(data) {
+							console.log(data);
+							$('#indexnumber').text(data['index'] + "%");
+						}
+					}
+				}
+			}).fail(function(error) {
+				console.log(`Fail`);
+			});
+
+
+
+		
+
+	</script>
 </body>
 
 </html>

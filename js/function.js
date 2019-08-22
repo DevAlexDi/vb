@@ -2,35 +2,35 @@ var hostname = window.location.protocol+'//'+window.location.hostname+"/";
 $(document).ready(function(){
 
     checkFooter();
-    $('#btn_request').click(function(){
-        email=$("#exampleInputEmail1").val().trim();
-        company=$("#exampleInputCompany").val().trim();
-        if (isEmail(email))
-        {
-            $.ajax({
-                url: hostname+"proc_email.php",
-                dataType: 'json',
-                async: false,
-                method: 'POST',
-                data: {
-                    mail_mode: "getstarted",
-                    email: email,
-                    company: company
-                },
-                success: function(result) {
+    // $('#btn_request').click(function(){
+    //     email=$("#exampleInputEmail1").val().trim();
+    //     company=$("#exampleInputCompany").val().trim();
+    //     if (isEmail(email))
+    //     {
+    //         $.ajax({
+    //             url: hostname+"proc_email.php",
+    //             dataType: 'json',
+    //             async: false,
+    //             method: 'POST',
+    //             data: {
+    //                 mail_mode: "getstarted",
+    //                 email: email,
+    //                 company: company
+    //             },
+    //             success: function(result) {
 
-                }
-            });
-            $('#thankyou_modal').modal('show');
-        }
-        else
-        {
-            alert("Enter Valid Email");    
-        }
+    //             }
+    //         });
+    //         $('#thankyou_modal').modal('show');
+    //     }
+    //     else
+    //     {
+    //         alert("Enter Valid Email");    
+    //     }
 
 
 
-    })
+    // })
     chkSearch();
 });
 

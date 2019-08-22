@@ -11,6 +11,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="css/select2.min.css" rel="stylesheet">
 	<link href="css/style.min.css" rel="stylesheet">
 </head>
 
@@ -44,17 +45,12 @@
 								<a class="nav-link" href="partners.html">Partners</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="marketplace.html">Marketplace</a>
+								<a class="nav-link" href="https://venturebox.myshopify.com">Marketplace</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-md-auto hidden-on-sm">
-							<li class="nav-item">
-								<a role="button" href="#getstarted" class="btn btn-primary-1 btn-md">
-										Get Started
-								</a>
-							</li>
-							<li class="nav-item active">
-								<a class="nav-link ml-4" href="registration.html">Log in <span class="sr-only">(current)</span></a>
+							<li class="nav-item" id="username-block" style="display: none;">
+								<p class="nav-link ml-4" id="username-text">Username</p>
 							</li>
 						</ul>
 					</div>
@@ -64,134 +60,223 @@
 		
 		<!--here-->
 		<div class="row app-content vb-main__content vb-main__content--grey">
-			<form class="registr-form">
+			<form class="registr-form" id="registr-form">
 				<div class="registr-form__xs-padding">
-					<h1 class="registr-form__title">Let’s discuss your business needs and how we can help</h1>
-					<p class="registr-form__sub-title">We are you interested in</p>
+					<h1 class="registr-form__title">Apply to be the the first to get free access to the platform</h1>
+					<p class="registr-form__sub-title">What are you interested in</p>
 				</div>
 				<div class="registr-form__width ">
 					<div class="checkboxes-row checkboxes-row--xs-max-width checkboxes-row--nowrapp registr-form__checkboxes-row">
 						<div class="one-checkbox checkboxes-row__check-box">
 							<div class="one-checkbox__check-style">
-								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-1">
-								<label for="checkbox-1"></label>
+								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-is_interested_in_access">
+								<label for="checkbox-is_interested_in_access"></label>
 							</div>
 							<p class="one-checkbox__label one-checkbox__label--nowrapp">Platform access</p>
 						</div>
 						<div class="one-checkbox checkboxes-row__check-box">
 							<div class="one-checkbox__check-style">
-								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-2">
-								<label for="checkbox-2"></label>
+								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-is_interested_in_insights">
+								<label for="checkbox-is_interested_in_insights"></label>
 							</div>
 							<p class="one-checkbox__label one-checkbox__label--nowrapp">Insights</p>
 						</div>
 						<div class="one-checkbox checkboxes-row__check-box">
 							<div class="one-checkbox__check-style">
-								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-3">
-								<label for="checkbox-3"></label>
+								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-is_interested_in_capital">
+								<label for="checkbox-is_interested_in_capital"></label>
 							</div>
 							<p class="one-checkbox__label one-checkbox__label--nowrapp">Capital</p>
 						</div>
 						<div class="one-checkbox checkboxes-row__check-box">
 							<div class="one-checkbox__check-style">
-								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-4">
-								<label for="checkbox-4"></label>
+								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-is_interested_in_marketplace">
+								<label for="checkbox-is_interested_in_marketplace"></label>
 							</div>
 							<p class="one-checkbox__label one-checkbox__label--nowrapp">Get listed on marketplace</p>
 						</div>
 					</div>
 				</div>
+
+				<div class="registr-form__xs-padding">
+					<p class="registr-form__sub-title">Programs</p>
+				</div>
+
+				<div class="registr-form__width ">
+					<div class="checkboxes-row checkboxes-row--xs-max-width checkboxes-row--nowrapp registr-form__checkboxes-row" style="justify-content: center;">
+						<div class="one-checkbox checkboxes-row__check-box">
+							<div class="one-checkbox__check-style">
+								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-is_consumer_connect">
+								<label for="checkbox-is_consumer_connect"></label>
+							</div>
+							<p class="one-checkbox__label one-checkbox__label--nowrapp">Consumer connect</p>
+						</div>
+						<div class="one-checkbox checkboxes-row__check-box">
+							<div class="one-checkbox__check-style">
+								<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-is_cross_border_expantion">
+								<label for="checkbox-is_cross_border_expantion"></label>
+							</div>
+							<p class="one-checkbox__label one-checkbox__label--nowrapp">Cross-border expantion</p>
+						</div>
+					</div>
+				</div>
+
+
 				<div class="registr-form__width">
 					<div class="registr-form__xs-padding">
 						<div class="input-groupe registr-form__input-groupe">
-							<label class="input-groupe__label" for="input-1">Website</label>
-							<input class="input-groupe__input" type="text" id="input-1" placeholder="http://">
+							<label class="input-groupe__label" for="input-website">Website</label>
+							<input class="input-groupe__input" type="text" id="input-website" placeholder="http://" required>
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
-							<label class="input-groupe__label" for="input-2">Company name</label>
-							<input class="input-groupe__input" type="text" id="input-2" placeholder="Company domain name or market name">
+							<label class="input-groupe__label" for="input-name">Company name</label>
+							<input class="input-groupe__input" type="text" id="input-name" placeholder="Company domain name or market name">
 						</div>
 					</div>
 					<div class="form-groupe form-groupe--margin-top registr-form__form-groupe">
 						<p class="form-groupe__title">Personal data</p>
 						<div class="input-groupe registr-form__input-groupe">
 							<label class="input-groupe__label" for="input-3">Your role</label>
-							<select class="input-groupe__input" id="input-3">
-								<option>CEO</option>
-								<option>CEO</option>
+							<select class="input-groupe__input select-init" id="input-3">
+								<option value="ceo">CEO</option>
+								<option value="cto">CTO</option>
+								<option value="cfo">CFO</option>
+								<option value="cio">CIO</option>
+								<option value="coo">COO</option>
+								<option value="cco">CCO</option>
+								<option value="cko">CKO</option>
+								<option value="cso">CSO</option>
+								<option value="cdo">CDO</option>
+								<option value="cmo">CMO</option>
 							</select>
 						</div>
 						<div class="form-row-inp">
 							<div class="form-row-inp__side">
 								<div class="input-groupe registr-form__input-groupe">
-									<label class="input-groupe__label" for="input-4">First name</label>
-									<input class="input-groupe__input" type="text" id="input-4">
+									<label class="input-groupe__label" for="input-firstname">First name</label>
+									<input class="input-groupe__input" type="text" id="input-firstname">
 								</div>
 							</div>
 							<div class="form-row-inp__side">
 								<div class="input-groupe registr-form__input-groupe">
-									<label class="input-groupe__label" for="input-5">Last name</label>
-									<input class="input-groupe__input" type="text" id="input-5">
+									<label class="input-groupe__label" for="input-lastname">Last name</label>
+									<input class="input-groupe__input" type="text" id="input-lastname">
 								</div>
 							</div>
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
-							<label class="input-groupe__label" for="input-6">Email</label>
-							<input class="input-groupe__input" type="text" id="input-6">
+							<label class="input-groupe__label" for="input-email">Email</label>
+							<input class="input-groupe__input" type="text" id="input-email">
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
-							<label class="input-groupe__label" for="input-7">Phone number</label>
-							<input class="input-groupe__input" type="text" id="input-7">
+							<label class="input-groupe__label" for="input-phone">Phone number</label>
+							<input class="input-groupe__input" type="text" id="input-phone">
+						</div>
+					
+						<div class="input-groupe registr-form__input-groupe">
+							<label class="input-groupe__label" for="input-goals">Describe your goals</label>
+							<textarea class="input-groupe__input input-groupe__input--textarea" id="input-goals"></textarea>
+						</div>
+						<div class="input-groupe registr-form__input-groupe">
+							<label class="input-groupe__label" for="input-password">Password</label>
+							<input class="input-groupe__input" type="password" id="input-password">
+						</div>
+						<div class="input-groupe registr-form__input-groupe">
+							<label class="input-groupe__label" for="input-password">Password confirmation</label>
+							<input class="input-groupe__input" type="password" id="input-password-conf">
 						</div>
 					</div>
 					<div class="form-groupe form-groupe--margin-top registr-form__form-groupe">
 						<p class="form-groupe__title">Company info</p>
 						<div class="input-groupe registr-form__input-groupe">
-							<label class="input-groupe__label" ></label>
-							<select class="input-groupe__input">
-								<option>Financial Markets</option>
-								<option>Financial Markets</option>
-							</select>
+							<label class="input-groupe__label" >Title</label>
+							<input class="input-groupe__input" type="text" id="input-markets">
+							<!-- <select class="input-groupe__input select-init" id="input-markets">
+								<option value="financial_markets">Financial Markets</option>
+							</select> -->
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
-							<label class="input-groupe__label" for="input-8">Founded in</label>
-							<select class="input-groupe__input" type="text" id="input-8">
+							<label class="input-groupe__label" for="input-founded_in">Founded in</label>
+							<select class="input-groupe__input select-init" type="text" id="input-founded_in">
 								<option>2016</option>
 								<option>2017</option>
+								<option>2018</option>
+								<option>2019</option>
 							</select>
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
-							<label class="input-groupe__label" for="input-9">Current stage</label>
-							<select class="input-groupe__input" type="text" id="input-9">
-								<option>Round A</option>
-								<option>Round B</option>
+							<label class="input-groupe__label" for="input-stage_of_funding">Current stage</label>
+							<select class="input-groupe__input select-init" type="text" id="input-stage_of_funding">
+								<option value="idea">Idea</option>
+								<option value="pre_seed">Pre-seed</option>
+								<option value="seed">Seed</option>
+								<option value="round_a">Round A</option>
+								<option value="round_b">Round B</option>
+								<option value="round_c">Round C</option>
 							</select>
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
-							<label class="input-groupe__label" for="input-10">Evaluation</label>
-							<input class="input-groupe__input" type="text" id="input-10">
+							<label class="input-groupe__label" for="input-equality_amount">Evaluation (%)</label>
+							<input class="input-groupe__input" type="number" max="99" oninput="maxLengthCheck(this)" maxlength = "2" min = "0" max = "99" id="input-equality_amount">
 						</div>
+
+						<div class="input-groupe registr-form__input-groupe">
+							<label class="input-groupe__label" for="input-investment">Already invested</label>
+							<input class="input-groupe__input" type="text" id="input-investment">
+						</div>
+
+						<div class="input-groupe registr-form__input-groupe">
+							<label class="input-groupe__label" for="input-company_email">Company email</label>
+							<input class="input-groupe__input" type="text" id="input-company_email">
+						</div>
+
+						<div class="input-groupe registr-form__input-groupe">
+							<label class="input-groupe__label" for="input-description">Company description</label>
+							<input class="input-groupe__input" type="text" id="input-description">
+						</div>
+
+						<div class="input-groupe registr-form__input-groupe">
+							
+							<div class="input-groupe__tabs">
+								<label class="input-groupe__tabs-label input-groupe__tabs-label--white" for="input-company_logo">Company logo</label>
+							</div>
+							<p id="filename1"></p>
+							<div class="input-groupe__flex-file">
+								<input class="input-groupe__input-file" type="file" name="file-input" data-target="filename1" id="input-company_logo">
+								<label class="input-groupe__button-label" for="input-company_logo"></label>
+							</div>
+
+						</div>	
+
+
+
+
+
+
+ 
+
+
 						<div class="input-groupe registr-form__input-groupe">
 							<p class="input-groupe__label input-groupe__label--more-margin">Source of revenue</p>
 							<div class="checkboxes-row checkboxes-row--nowrapp registr-form__checkboxes-row">
 								<div class="one-checkbox checkboxes-row__check-box">
 									<div class="one-checkbox__check-style">
-										<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-5">
-										<label for="checkbox-5"></label>
+										<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-is_revenue_consumer">
+										<label for="checkbox-is_revenue_consumer"></label>
 									</div>
 									<p class="one-checkbox__label one-checkbox__label--nowrapp">Direct to consumer</p>
 								</div>
 								<div class="one-checkbox checkboxes-row__check-box">
 									<div class="one-checkbox__check-style">
-										<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-6">
-										<label for="checkbox-6"></label>
+										<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-is_revenue_wholesale">
+										<label for="checkbox-is_revenue_wholesale"></label>
 									</div>
 									<p class="one-checkbox__label one-checkbox__label--nowrapp">Wholesale</p>
 								</div>
 								<div class="one-checkbox checkboxes-row__check-box">
 									<div class="one-checkbox__check-style">
-										<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-7">
-										<label for="checkbox-7"></label>
+										<input type="checkbox" class="one-checkbox__checkbox" name="" id="checkbox-is_revenue_other">
+										<label for="checkbox-is_revenue_other"></label>
 									</div>
 									<p class="one-checkbox__label one-checkbox__label--nowrapp">Other</p>
 								</div>
@@ -201,43 +286,49 @@
 						<p class="form-groupe__title">Optional company info</p>
 						<div class="input-groupe registr-form__input-groupe">
 							<p class="input-groupe__label">Investor deck</p>
+							<br>
+							<div class="input-groupe registr-form__input-groupe">
+								<label class="input-groupe__label" for="input-investor_deck_link">Add link</label>
+								<input class="input-groupe__input" type="text" id="input-investor_deck_link">
+							</div>
+
 							<div class="input-groupe__tabs">
-								<label class="input-groupe__tabs-label" for="input-link">Add link</label>
-								<label class="input-groupe__tabs-label input-groupe__tabs-label--white" for="input-file">Upload file</label>
+								<label class="input-groupe__tabs-label input-groupe__tabs-label--white" for="input-investor_deck_file">Upload file</label>
 							</div>
+							<p id="filename2"></p>
 							<div class="input-groupe__flex-file">
-								<input class="input-groupe__input input-groupe__input--none-radius-right" type="text" id="input-link">
-								<input class="input-groupe__input-file" type="file" id="input-file">
-								<label class="input-groupe__button-label" for="input-file"></label>
+								<input class="input-groupe__input-file" type="file" name="file-input" data-target="filename2" id="input-investor_deck_file">
+								<label class="input-groupe__button-label" for="input-investor_deck_file"></label>
 							</div>
+
 						</div>	
 						<div class="input-groupe registr-form__input-groupe">
 							<p class="input-groupe__label input-groupe__label--more-margin">Current revenue</p>
 							<div class="checkboxes-row checkboxes-row--nowrapp registr-form__checkboxes-row registr-form__checkboxes-row--none-margin">
 								<div class="one-radio checkboxes-row__check-box">
 									<div class="one-radio__check-style">
-										<input type="radio" class="one-radio__checkbox" name="revenue" value="1" id="radio-1" checked>
+										<input type="radio" class="one-radio__checkbox" name="revenue" value="zero" id="radio-1" checked>
 										<label for="radio-1"></label>
 									</div>
 									<p class="one-radio__label one-checkbox__label--nowrapp">$n/a</p>
 								</div>
 								<div class="one-radio checkboxes-row__check-box">
 									<div class="one-radio__check-style">
-										<input type="radio" class="one-radio__checkbox" name="revenue" value="2" id="radio-2">
+										<input type="radio" class="one-radio__checkbox" name="revenue" value="two_hundred" id="radio-2">
 										<label for="radio-2"></label>
 									</div>
 									<p class="one-radio__label one-checkbox__label--nowrapp">$0k - $250k</p>
 								</div>
 								<div class="one-radio checkboxes-row__check-box">
 									<div class="one-radio__check-style">
-										<input type="radio" class="one-radio__checkbox" name="revenue" value="3" id="radio-3">
+										<input type="radio" class="one-radio__checkbox" name="revenue" value="million" id="radio-3">
 										<label for="radio-3"></label>
 									</div>
 									<p class="one-radio__label one-checkbox__label--nowrapp">$250k - $1M</p>
 								</div>
 								<div class="one-radio checkboxes-row__check-box">
 									<div class="one-radio__check-style">
-										<input type="radio" class="one-radio__checkbox" name="revenue" value="4" id="radio-4">
+										<input type="radio" class="one-radio__checkbox" name="revenue" value="universe" id="radio-4">
 										<label for="radio-4"></label>
 									</div>
 									<p class="one-radio__label one-checkbox__label--nowrapp">>$1M</p>
@@ -246,25 +337,25 @@
 							</div>
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
-							<label class="input-groupe__label" for="input-9">Current stage</label>
-							<textarea class="input-groupe__input input-groupe__input--textarea" id="input-9"></textarea>
+							<label class="input-groupe__label" for="input-current_stage_description">Current stage</label>
+							<textarea class="input-groupe__input input-groupe__input--textarea" id="input-current_stage_description"></textarea>
 						</div>
 							
 					</div>
 					<div class="form-groupe registr-form__form-groupe">
 						<p class="form-groupe__title">Markets</p>
 						<div class="input-groupe registr-form__input-groupe">
-							<label class="input-groupe__label" for="input-30">Primary market</label>
-							<select class="input-groupe__input" id="input-30">
-								<option>Slovenia</option>
-								<option>USA</option>
+							<label class="input-groupe__label" for="input-primary_market">Primary market</label>
+							<select class="input-groupe__input select-init" id="input-primary_market">
+								<!-- <option>Slovenia</option> -->
+								<!-- <option>USA</option> -->
 							</select>
 						</div>
 						<div class="input-groupe registr-form__input-groupe">
-							<label class="input-groupe__label" for="input-30">Target market</label>
-							<select class="input-groupe__input" id="input-30">
-								<option>USA</option>
-								<option>Slovenia</option>
+							<label class="input-groupe__label" for="input-target_market">Target market</label>
+							<select class="input-groupe__input select-init" id="input-target_market">
+								<!-- <option>USA</option> -->
+								<!-- <option>Slovenia</option> -->
 							</select>
 						</div>
 						
@@ -276,28 +367,28 @@
 							<div class="checkboxes-row checkboxes-row--nowrapp registr-form__checkboxes-row registr-form__checkboxes-row--none-margin">
 								<div class="one-radio checkboxes-row__check-box">
 									<div class="one-radio__check-style">
-										<input type="radio" class="one-radio__checkbox" name="revenue" value="1" id="radio-21" checked>
+										<input type="radio" class="one-radio__checkbox" name="targetrevenue" value="hundred" id="radio-21" checked>
 										<label for="radio-21"></label>
 									</div>
 									<p class="one-radio__label one-checkbox__label--nowrapp">$24k - $100k</p>
 								</div>
 								<div class="one-radio checkboxes-row__check-box">
 									<div class="one-radio__check-style">
-										<input type="radio" class="one-radio__checkbox" name="revenue" value="2" id="radio-22">
+										<input type="radio" class="one-radio__checkbox" name="targetrevenue" value="five_hundred" id="radio-22">
 										<label for="radio-22"></label>
 									</div>
 									<p class="one-radio__label one-checkbox__label--nowrapp">$100k - $500k</p>
 								</div>
 								<div class="one-radio checkboxes-row__check-box">
 									<div class="one-radio__check-style">
-										<input type="radio" class="one-radio__checkbox" name="revenue" value="3" id="radio-23">
+										<input type="radio" class="one-radio__checkbox" name="targetrevenue" value="one_million" id="radio-23">
 										<label for="radio-23"></label>
 									</div>
 									<p class="one-radio__label one-checkbox__label--nowrapp">$500k - $1M</p>
 								</div>
 								<div class="one-radio checkboxes-row__check-box">
 									<div class="one-radio__check-style">
-										<input type="radio" class="one-radio__checkbox" name="revenue" value="4" id="radio-24">
+										<input type="radio" class="one-radio__checkbox" name="targetrevenue" value="more" id="radio-24">
 										<label for="radio-24"></label>
 									</div>
 									<p class="one-radio__label one-checkbox__label--nowrapp">$1M+</p>
@@ -314,7 +405,19 @@
 							</div>
 							<p class="one-checkbox__label">By checking this box, I agree and consent to transact business with Venture Box electronically, including signing and receiving documents, disclosures and other records electronically and as set forth in the Electronic Business Consent in our Terms of Use. </p>
 						</div>
-						<a href="./marketplace.html" class="registr-form__submit" >Send</a>
+						<p class="registr-form__submit" id="registr-form__button" >Send</p>
+						<div style="display: none;" id="preloader">
+							  <div id="cube-loader">
+								<div class="caption">
+								<div class="cube-loader">
+									<div class="cube loader-1"></div>
+									<div class="cube loader-2"></div>
+									<div class="cube loader-4"></div>
+									<div class="cube loader-3"></div>
+								</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</form>
@@ -326,10 +429,10 @@
 		<div class="row vb-footer-wrap vb-main__footer">
 			<div class="vb-footer w-100">
 				<div class="col-12 row">
-						<a class="navbar-brand logo mr-5" href="#"><img src="img/v-box-logo.png" /></a>				
+						<a class="navbar-brand logo mr-5" href="index.html"><img src="img/v-box-logo.png" /></a>				
 				</div>
 				<div class="row vb-footer-navs mt-3">
-					<div class="col-lg-3 col-5">
+					<!-- <div class="col-lg-3 col-5">
 						<h5><a href="#">About</a></h5>
 						<div class="row">
 							<div class="col-6">
@@ -341,39 +444,39 @@
 								<h6><a href="#">Blog</a></h6>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="col-lg-3 col-7">
-						<h5><a href="#">Our product</a></h5>
+						<!-- <h5><a href="#">Our product</a></h5> -->
 						<div class="row">
 							<div class="col-6">
-								<h6><a href="#">Features</a></h6>
-								<h6><a href="#">Capital</a></h6>						
+								<!-- <h6><a href="#">Features</a></h6> -->
+								<h6><a href="capitalcredit.html">Capital</a></h6>						
 							</div>
 							<div class="col-6">
-								<h6><a href="#">Partners</a></h6>
-								<h6><a href="#">Marketplace</a></h6>
+								<h6><a href="partners.html">Partners</a></h6>
+								<!-- <h6><a href="marketplace.html">Marketplace</a></!--> 
 							</div>
 						</div>
 
 					</div>
-					<div class="col-3 d-none d-md-block">
+					<!-- <div class="col-3 d-none d-md-block">
 						<h5><a href="#">Contact us<span class="pl-3"><img class="ft-icon" src="img/ico-mail.png"/></span></a></h5>
 
-					</div>
-					<div class="col-lg-3 col-12 text-left text-md-right pr-0">
+					</div> -->
+					<!-- <div class="col-lg-3 col-12 text-left text-md-right pr-0">
 						<ul class="social-icons">
 							<li><a href="#"><img class="ft-icon" src="img/ico-angellist.png"/></a></li>
 							<li><a href="#"><img class="ft-icon" src="img/ico-crunchbase.png"/></a></li>
 							<li><a href="#"><img class="ft-icon" src="img/ico-linkedin.png"/></a></li>
 							<li><a href="#"><img class="ft-icon d-inline-block d-md-none" src="img/ico-mail.png"/></a></li>
 						</ul>
-					</div>
+					</div> -->
 				</div>	
 				<div class="row d-block text-left text-md-right">
 					<ul class="vb-footer-bottom">
 						<li>© 2019 Venture Box. All right reserved.</li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Terms of Service</a></li>
+						<li><a class="download_1" href="#">Privacy Policy</a></li>
+						<li><a class="download_2" href="#">Terms of Service</a></li>
 					</ul>
 				</div>			
 			</div>
@@ -395,6 +498,37 @@
 		  </div>
 		</div>
 	  </div>
+	  <div class="modal" tabindex="-1" role="dialog" id="error_modal">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title">Error!</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+			  <p>Please, fill in all required fields</p>
+			  <p id="additionError"></p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="modal" tabindex="-1" role="dialog" id="error_pass_modal">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title">Error!</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+			  <p>Please, check your password and password confirmation!</p>
+			</div>
+		  </div>
+		</div>
+	  </div>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 		crossorigin="anonymous">
 	</script>
@@ -404,8 +538,214 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
+	<script src="js/select2.min.js"></script>
 	<script src="js/function.js"></script>
 	<script src="js/scripts.js"></script>
+	<script src="js/countries.js"></script>
+
+	<script>
+
+		function maxLengthCheck(object)
+		{
+			if (object.value.length > object.maxLength)
+			object.value = object.value.slice(0, object.maxLength)
+		}
+
+		$('.select-init').select2({
+			width: 'resolve'
+		});
+
+
+		for (var item of Countries) {
+			$("#input-primary_market").append(new Option(item.name, item.name));
+			$("#input-target_market").append(new Option(item.name, item.name));
+		}	
+		$("#input-primary_market").val("United States");
+		$("#input-target_market").val("United States");
+
+		$("input[name='file-input']").change(function() {
+				var fileName = $(this).val().split('/').pop().split('\\').pop();
+				var name = '#' + $(this).attr('data-target');
+				console.log(`name = `, name);
+				$(name).text(fileName);
+		});
+
+		function sendRequestUser() {
+				$('#additionError').text('');
+				$('#preloader').css({'display' : 'block'});
+				$('#registr-form__button').css({'display' : 'none'});
+			getBase64(
+				document.querySelector('#input-investor_deck_file').files[0],
+				function(file1) {
+							getBase64(
+								document.querySelector('#input-company_logo').files[0],
+								function(file2) {
+
+			var dataUser = {
+				name: $("#input-firstname").val(),
+				surname: $("#input-lastname").val(),
+				email: $("#input-email").val(),
+				contact_email: $("#input-company_email").val(),
+				phone: $("#input-phone").val(),
+				password: $("#input-password").val(),
+				password_confirmation: $("#input-password-conf").val(),
+				role: "startup",
+				goals: $("#input-goals").val(),
+										company_name: $("#input-name").val(),
+										website: $("#input-website").val(),
+										description: "",
+										is_interested_in_access: $("#checkbox-is_interested_in_access").is(":checked"),
+										is_interested_in_insights: $("#checkbox-is_interested_in_insights").is(":checked"),
+										is_interested_in_capital: $("#checkbox-is_interested_in_capital").is(":checked"),
+										is_interested_in_marketplace: $("#checkbox-is_interested_in_marketplace").is(":checked"),
+										markets: $("#input-markets").val(),
+										founded_in: $("#input-founded_in").val(),
+										stage_of_funding: $("#input-stage_of_funding").val(),
+										equality_amount: $("#input-equality_amount").val(),
+										is_revenue_consumer: $("#checkbox-is_revenue_consumer").is(":checked"),
+										is_revenue_wholesale: $("#checkbox-is_revenue_wholesale").is(":checked"),
+										is_revenue_other: $("#checkbox-is_revenue_other").is(":checked"),
+										investor_deck_link: $("#input-investor_deck_link").val(),
+										investor_deck_file: file1,
+										current_revenue: $('input[name=revenue]:checked').val(),
+										current_stage_description: $("#input-current_stage_description").val(),
+										primary_market: $("#input-primary_market").val(),
+										target_market: $("#input-target_market").val(),
+										target_revenue: $('input[name=targetrevenue]:checked').val(),
+										is_consumer_connect: $("#checkbox-is_consumer_connect").is(":checked"),
+										is_cross_border_expantion: $("#checkbox-is_cross_border_expantion").is(":checked"),
+
+										investment: $("#input-investmentt").val(),
+										company_email: $("#input-company_email").val(),
+										company_logo: file2 ,
+										image: file2 ,
+										description: $("#input-description").val(),
+										team_members: [{
+											team_member_name: $("#input-firstname").val(),
+											c_level: $("#input-3").val()
+										}],
+										c_level: $("#input-3").val()
+			};
+			console.log(`user = `,dataUser);
+
+			if(!$("#input-password").val() || $("#input-password").val() != $("#input-password-conf").val() )
+			{
+				$('#error_pass_modal').modal('show');
+				$('#preloader').css({'display' : 'none'});
+				$('#registr-form__button').css({'display' : 'block'});
+			}
+			else 
+			$.ajax("https://venture-box-back.herokuapp.com/users.json",{
+				data : JSON.stringify(dataUser),
+				contentType : 'application/json',
+				type : 'POST',
+				success: function(data,status){
+					if (status=='success') {
+						if(data) {
+							// localStorage.setItem('token', data['token']);
+							// localStorage.setItem('user', JSON.stringify(data));
+							// TOKEN = data['token'];
+							// sendRequestCompany(data['id']);
+							// setUserOnHeader();
+							$('#thankyou_modal').modal('show');
+						}
+					}
+					$('#preloader').css({'display' : 'none'});
+					$('#registr-form__button').css({'display' : 'block'});
+				}
+			}).fail(function(error) {
+				console.log(`Fail`);
+
+				var errors = error.responseJSON;
+				
+				var Errors = '';
+
+				for (var key in errors) {
+					var value = errors[key];
+					for (var item of value) {
+						Errors += key.slice(0, 1).toUpperCase() + key.slice(1).replace('_', ' ').toLowerCase();
+						Errors += ' ' + item.replace('_', ' ').toLowerCase() + '. ';
+					}
+				}
+				$('#additionError').text(Errors);
+				$('#error_modal').modal('show');
+				$('#preloader').css({'display' : 'none'});
+				$('#registr-form__button').css({'display' : 'block'});
+			});
+			});
+		});
+		}
+
+		function getBase64(file, next) {
+			if(file){
+			var reader = new FileReader();
+			reader.readAsDataURL(file);
+			reader.onload = function () {
+				console.log(reader.result);
+				next(reader.result);
+			};
+			reader.onerror = function (error) {
+				console.log('Error: ', error);
+				next('');
+			};}
+			else next('');
+		}
+
+		function sendRequestCompany(user_id) {
+			getBase64(
+				document.querySelector('#input-investor_deck_file').files[0],
+				function(file1) {
+							getBase64(
+								document.querySelector('#input-company_logo').files[0],
+								function(file2) {
+									var dataCompany = {
+
+									};
+									console.log(`company = `,dataCompany);
+									$.ajax("https://venture-box-back.herokuapp.com/users/"+user_id+"/companies.json",{
+										data : JSON.stringify(dataCompany),
+										contentType : 'application/json',
+										type : 'POST',
+										headers:{
+											"Authorization": TOKEN
+										},
+										success: function(data,status){
+											if (status=='success') {
+												if(data) {
+													console.log(data);
+													// location.href = '/';
+													$('#thankyou_modal').modal('show');
+												}
+											}
+										}
+									}).fail(function(error) {
+										console.log(`Fail`);
+										$('#error_modal').modal('show');
+									});
+								}
+							);
+				}
+			);
+
+
+		}
+
+		$('#registr-form__button').click(function (e) {
+			e.preventDefault;
+			console.log($('#registr-form'))
+			
+			$('.input-groupe__input').removeClass('input-groupe__input--error');
+			$('.input-groupe__input').each(function(){
+				if($(this).val() == ''){
+					$(this).addClass('input-groupe__input--error');
+				}
+				
+			});
+
+			sendRequestUser();
+		});
+	</script>
+
 </body>
 
 </html>

@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="css/style.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -44,103 +45,103 @@
 								<a class="nav-link" href="partners.html">Partners</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="marketplace.html">Marketplace</a>
+								<a class="nav-link" href="https://venturebox.myshopify.com">Marketplace</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-md-auto hidden-on-sm">
-							<li class="nav-item">
-								<a role="button" href="#getstarted" class="btn btn-primary-1 btn-md">
+							<li id="getstarted-block" class="nav-item">
+								<a role="button" href="registration.html" class="btn btn-primary-1 btn-md">
 										Get Started
 								</a>
 							</li>
-							<li class="nav-item active">
+							<!-- <li class="nav-item active" id="login-block">
 								<a class="nav-link ml-4" href="registration.html">Log in <span class="sr-only">(current)</span></a>
+							</li> -->
+							<li class="nav-item" id="username-block" style="display: none;">
+								<p class="nav-link ml-4" id="username-text">Username</p>
 							</li>
 						</ul>
 					</div>
 				</nav>
 			</div>
 		</div>
-		
+
 		<!--here-->
 		<div class="row app-content vb-main__content">
 			<div class="partners">
 				<div class="partner partners__item">
 					<h4 class="partner__title">For corporates</h4>
 					<div class="partner__description">
-						<p class="partner__text">We have expanded our support for companies to be more holistic. We now provide not only access to capital, but also introductions to retailers and strategics, as well as actionable insights, powered by our machine learning platform, Helio.</p>
+						<p class="partner__text">We have expanded our support for companies to be more holistic. We now provide not only access to capital, but also introductions to retailers and strategics, as well as actionable insights, powered by our machine learning platform, Venture Box.</p>
 						<button class="partner__button">Reguest access</button>
 					</div>
 				</div>
 				<div class="partner partners__item">
 					<h4 class="partner__title">For VCs</h4>
 					<div class="partner__description">
-						<p class="partner__text">We have expanded our support for companies to be more holistic. We now provide not only access to capital, but also introductions to retailers and strategics, as well as actionable insights, powered by our machine learning platform, Helio.</p>
+						<p class="partner__text">We have expanded our support for companies to be more holistic. We now provide not only access to capital, but also introductions to retailers and strategics, as well as actionable insights, powered by our machine learning platform, Venture Box.</p>
 						<button class="partner__button">Reguest access</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		
-
-		
 		<div class="row vb-footer-wrap vb-main__footer">
-			<div class="vb-footer w-100">
-				<div class="col-12 row">
-						<a class="navbar-brand logo mr-5" href="#"><img src="img/v-box-logo.png" /></a>				
-				</div>
-				<div class="row vb-footer-navs mt-3">
-					<div class="col-lg-3 col-5">
-						<h5><a href="about.html">About</a></h5>
-						<div class="row">
-							<div class="col-6">
-								<h6><a href="#">Press</a></h6>
-								<h6><a href="#">Career</a></h6>						
+				<div class="vb-footer w-100">
+					<div class="col-12 row">
+							<a class="navbar-brand logo mr-5" href="index.html"><img src="img/v-box-logo.png" /></a>				
+					</div>
+					<div class="row vb-footer-navs mt-3">
+						<!-- <div class="col-lg-3 col-5">
+							<h5><a href="#">About</a></h5>
+							<div class="row">
+								<div class="col-6">
+									<h6><a href="#">Press</a></h6>
+									<h6><a href="#">Career</a></h6>						
+								</div>
+								<div class="col-6">
+									<h6><a href="#">FAQs</a></h6>
+									<h6><a href="#">Blog</a></h6>
+								</div>
 							</div>
-							<div class="col-6">
-								<h6><a href="#">FAQs</a></h6>
-								<h6><a href="#">Blog</a></h6>
+						</div> -->
+						<div class="col-lg-3 col-7">
+							<!-- <h5><a href="#">Our product</a></h5> -->
+							<div class="row">
+								<div class="col-6">
+									<!-- <h6><a href="#">Features</a></h6> -->
+									<h6><a href="capitalcredit.html">Capital</a></h6>						
+								</div>
+								<div class="col-6">
+									<h6><a href="partners.html">Partners</a></h6>
+									<!-- <h6><a href="marketplace.html">Marketplace</a></!--> 
+								</div>
 							</div>
+	
 						</div>
-					</div>
-					<div class="col-lg-3 col-7">
-						<h5><a href="#">Our product</a></h5>
-						<div class="row">
-							<div class="col-6">
-								<h6><a href="#">Features</a></h6>
-								<h6><a href="#">Capital</a></h6>						
-							</div>
-							<div class="col-6">
-								<h6><a href="#">Partners</a></h6>
-								<h6><a href="#">Marketplace</a></h6>
-							</div>
-						</div>
-
-					</div>
-					<div class="col-3 d-none d-md-block">
-						<h5><a href="#">Contact us<span class="pl-3"><img class="ft-icon" src="img/ico-mail.png"/></span></a></h5>
-
-					</div>
-					<div class="col-lg-3 col-12 text-left text-md-right pr-0">
-						<ul class="social-icons">
-							<li><a href="#"><img class="ft-icon" src="img/ico-angellist.png"/></a></li>
-							<li><a href="#"><img class="ft-icon" src="img/ico-crunchbase.png"/></a></li>
-							<li><a href="#"><img class="ft-icon" src="img/ico-linkedin.png"/></a></li>
-							<li><a href="#"><img class="ft-icon d-inline-block d-md-none" src="img/ico-mail.png"/></a></li>
+						<!-- <div class="col-3 d-none d-md-block">
+							<h5><a href="#">Contact us<span class="pl-3"><img class="ft-icon" src="img/ico-mail.png"/></span></a></h5>
+	
+						</div> -->
+						<!-- <div class="col-lg-3 col-12 text-left text-md-right pr-0">
+							<ul class="social-icons">
+								<li><a href="#"><img class="ft-icon" src="img/ico-angellist.png"/></a></li>
+								<li><a href="#"><img class="ft-icon" src="img/ico-crunchbase.png"/></a></li>
+								<li><a href="#"><img class="ft-icon" src="img/ico-linkedin.png"/></a></li>
+								<li><a href="#"><img class="ft-icon d-inline-block d-md-none" src="img/ico-mail.png"/></a></li>
+							</ul>
+						</div> -->
+					</div>	
+					<div class="row d-block text-left text-md-right">
+						<ul class="vb-footer-bottom">
+							<li>© 2019 Venture Box. All right reserved.</li>
+							<li><a class="download_1" href="#">Privacy Policy</a></li>
+							<li><a class="download_2" href="#">Terms of Service</a></li>
 						</ul>
-					</div>
-				</div>	
-				<div class="row d-block text-left text-md-right">
-					<ul class="vb-footer-bottom">
-						<li>© 2019 Venture Box. All right reserved.</li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Terms of Service</a></li>
-					</ul>
-				</div>			
+					</div>			
+				</div>
+	
 			</div>
-
-		</div>
 	</div>
 	<div class="modal" tabindex="-1" role="dialog" id="thankyou_modal">
 		<div class="modal-dialog" role="document">
